@@ -1,0 +1,85 @@
+.facial-container {
+  width: 100%;
+}
+
+.facial-wrapper {
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.facial-title {
+  font-size: 2rem;
+  color: #f44a22;
+}
+
+.facial-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* .facial-video-container {
+  width: 50%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+} */
+
+.facial-video {
+  width: 70%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.facial-text-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.facial-description {
+  font-size: 1rem;
+  color: #f44a22;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+.facial-button {
+  padding: 0.7rem 1.2rem;
+  margin-top: 1.5rem;
+  background: #1c1917;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  color: #f44a22;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.facial-button:hover {
+  background: #2d2927;
+  transform: translateY(-2px);
+}
+
+.facial-mood {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #333;
+}
+
+.facial-mood span {
+  color: #f44a22;
+  font-weight: 400;
+}
