@@ -1,24 +1,207 @@
-.container{
-    width: 1200px;
-    height: 15vh;
-    margin: 0 auto;
+/* Fixed Bottom Container */
+.player-fixed-bar {
+  position: fixed;
+  bottom: 22px; /* Floating slightly above bottom looks more modern */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
-.main-player{
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    position: relative;
-    height: 100%;
-    padding: 0.2rem;
-    border-radius: 15px;
-    background-color: #1c1c1c;
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+/* The Glass Strip */
+.player-glass-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  height: 90px;
+  
+  /* Glass Effect */
+  background: rgba(20, 18, 17, 0.75); /* Darker semi-transparent */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
 }
-.main-player .top-text{
-    color: white;
-    font-size: 1rem;
-    /* border: 1px solid white; */
+
+/* --- SECTIONS --- */
+.player-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.player-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex: 2;
+}
+
+.player-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+/* --- ELEMENTS --- */
+/* Album Art */
+.bar-album-art {
+  height: 56px;
+  width: 56px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Text */
+.bar-song-info {
+  display: flex;
+  flex-direction: column;
+}
+.bar-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+.bar-artist {
+  font-size: 0.85rem;
+  color: #f44a22; /* Brand Color */
+}
+
+/* Controls */
+.bar-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.bar-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.bar-btn:hover { color: #fff; }
+
+.bar-play-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f44a22, #d63b17);
+  color: white;
+  box-shadow: 0 4px 12px rgba(244, 74, 34, 0.4);
+  transition: transform 0.2s;
+}
+.bar-play-btn:hover { transform: scale(1.05); }
+
+/* Progress Bar */
+.bar-progress-container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.time { font-size: 0.7rem; color: rgba(255,255,255,0.5); }
+
+.bar-progress-bg {
+  flex-grow: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.bar-progress-fill {
+  height: 100%;
+  background: #f44a22;
+}
+
+@media (max-width: 768px) {
+  .player-fixed-bar {
+    bottom: 0;
+    padding: 0;
+  }
+
+  .player-glass-wrapper {
+    border-radius: 0;
+    height: 80px;
+  }
+
+  .bar-album-art {
+    display: none;
+  }
+
+  .player-center {
+    flex: 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .player-glass-wrapper {
+    height: auto;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .player-left {
+    flex: 1;
     width: 100%;
-    text-align: center;
-    padding: 0.1rem;
+    justify-content: center;
+  }
+
+  .player-center {
+    order: 2;
+    width: 100%;
+  }
+
+  .player-right {
+    display: none;
+  }
+
+  .bar-song-info {
+    align-items: center;
+  }
+
+  .bar-title {
+    font-size: 0.9rem;
+  }
+
+  .bar-artist {
+    font-size: 0.75rem;
+  }
+
+  .bar-controls {
+    gap: 1rem;
+  }
+
+  .bar-play-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .bar-progress-container {
+    max-width: 100%;
+  }
 }

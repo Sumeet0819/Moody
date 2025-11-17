@@ -60,27 +60,25 @@ export default function FacialExpression({ setSongs }) {
   return (
     <div className="facial-container">
       <div className="facial-wrapper">
-        <h2 className="facial-title">Live Mood Detection</h2>
+        <h2 className="facial-title">Mood Detection</h2>
         <div className="facial-content">
           <div className="facial-video-container">
             <video ref={videoRef} autoPlay muted className="facial-video" />
           </div>
           <div className="facial-text-container">
             <p className="facial-description">
-              Welcome to MoodyPlayer! We’re here to set the perfect vibe based
-              on your mood. Get ready as we read your expressions to tailor the
-              music just for you. Make sure your face is clearly visible to the
-              camera, and relax — face detection is starting now. Sit back,
-              enjoy the experience, and let the music match your mood!
+              Let your face choose the vibe. Please keep your camera clear and
+              relax—scanning your mood now to curate your perfect playlist!
             </p>
+            <div className="bottom-container">
+              <button onClick={detectMood} className="facial-button">
+                Detect Mood
+              </button>
 
-            <button onClick={detectMood} className="facial-button">
-              Detect Mood
-            </button>
-
-            <p className="facial-mood">
-              Current Mood: <span>{mood}</span>
-            </p>
+              <p className="facial-mood">
+                Current Mood: <span>{mood}</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
