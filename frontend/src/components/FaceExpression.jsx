@@ -4,7 +4,7 @@ import axios from "axios";
 import "./FaceExpression.css"; // Import CSS file
 
 export default function FacialExpression({ setSongs }) {
-  const [mood, setMood] = useState("");
+  const [mood, setMood] = useState("neutral");
   const videoRef = useRef();
   const MODEL_URL = "/models";
 
@@ -33,7 +33,7 @@ export default function FacialExpression({ setSongs }) {
     }
 
     const expressions = detections[0].expressions;
-    let detectedMood = "";
+    let detectedMood = "neutral";
     let mostExpressionValue = 0;
 
     for (const [expression, value] of Object.entries(expressions)) {
@@ -56,6 +56,16 @@ export default function FacialExpression({ setSongs }) {
   useEffect(() => {
     loadModels().then(startVideo);
   }, []);
+
+  // Fetch songs for default neutral mood on component mount
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/song?mood=neutral`)
+      .then((response) => {
+        setSongs(response.data.song);
+      })
+      .catch((err) => console.error("Error fetching default songs: ", err));
+  }, [setSongs]);
 
   return (
     <div className="facial-container">
