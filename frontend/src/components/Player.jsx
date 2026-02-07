@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Player.css";
 
 const Player = ({ currentSong, isPlaying, setIsPlaying, audioRef }) => {

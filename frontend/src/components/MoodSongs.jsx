@@ -1,5 +1,4 @@
-import React from "react";
-import "./MoodSongs.css"; // Import CSS file
+import "./MoodSongs.css";
 
 const MoodSongs = ({ songs, currentSong, setCurrentSong, isPlaying, setIsPlaying, audioRef }) => {
 

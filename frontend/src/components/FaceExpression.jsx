@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as faceapi from "face-api.js";
 import axios from "axios";
-import "./FaceExpression.css"; // Import CSS file
+import "./FaceExpression.css";
 
 export default function FacialExpression({ setSongs }) {
   const [mood, setMood] = useState("neutral");

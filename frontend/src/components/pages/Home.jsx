@@ -11,7 +11,6 @@ const App = () => {
 
   return (
     <div className="main-container">
-      <div className="top-container">
       <FaceExpression setSongs={setSongs} />
       <MoodSongs 
         songs={Songs} 
@@ -21,7 +20,6 @@ const App = () => {
         setIsPlaying={setIsPlaying}
         audioRef={audioRef}
       />
-      </div>
       <Player 
         currentSong={currentSong}
         isPlaying={isPlaying}

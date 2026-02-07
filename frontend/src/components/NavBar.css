@@ -1,88 +1,62 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 2rem;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--glass-border);
+  justify-content: center;
+  padding: 1rem;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.navbar-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.logo {
-  height: 40px;
-  width: 40px;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(244, 74, 34, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.logo::before {
-  content: '♪';
-  font-size: 1.5rem;
-  color: white;
-  font-weight: bold;
 }
 
 .navbar-title {
   font-weight: 700;
-  letter-spacing: -0.5px;
-  font-size: 1.5rem;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: -0.02em;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  transition: all 0.2s ease;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-sm);
+  border-radius: 25rem;
 }
 
-@media (max-width: 768px) {
+.navbar-title:hover {
+  color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
   .navbar {
-    padding: 1.25rem 1.5rem;
+    height: 60px;
+    padding: 0 var(--spacing-lg);
   }
 
   .navbar-title {
-    font-size: 1.3rem;
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    height: 56px;
+    padding: 0 var(--spacing-md);
   }
 
-  .logo {
-    height: 36px;
-    width: 36px;
-  }
-
-  .logo::before {
-    font-size: 1.3rem;
+  .navbar-title {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 1rem;
+    height: 52px;
+    padding: 0 var(--spacing-sm);
   }
 
   .navbar-title {
-    font-size: 1.2rem;
-  }
-
-  .logo {
-    height: 32px;
-    width: 32px;
-  }
-
-  .logo::before {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
 }
